@@ -12,11 +12,11 @@ CONSTANTS
 
     RIGHT_NIL = 0           # right() was not called
     RIGHT_OK = 1            # last right() call completed
-    RIGHT_ERR = 2           # last right() call was not
+    RIGHT_ERR = 2           # last right() call was not completed
 
     PUT_RIGHT_NIL = 0       # put_right() was not called
     PUT_RIGHT_OK = 1        # last put_right() call completed
-    PUT_RIGHT_ERR = 2       # last put_rigth() call was not
+    PUT_RIGHT_ERR = 2       # last put_rigth() call was not completed
 
     PUT_LEFT_NIL = 0        # put_left() was not called yet
     PUT_LEFT_OK = 1         # last put_left() call completed
