@@ -1,5 +1,6 @@
 """
-LinkedList abstract data type implementing a linked list data structure interface.
+LinkedList abstract data type (base class) definition for
+implementing a linked list data types.
 
 CONSTANTS
     HEAD_NIL = 0            # head() was not called
