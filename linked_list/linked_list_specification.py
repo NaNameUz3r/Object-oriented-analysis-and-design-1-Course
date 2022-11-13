@@ -1,5 +1,5 @@
 """
-LinkedList abstract data type (base class) definition for
+BaseLinkedList abstract data type (base class) definition for
 implementing a linked list data types.
 
 CONSTANTS
@@ -30,6 +30,10 @@ CONSTANTS
     GET_NIL = 0             # get() was not called
     GET_OK = 1              # last get() call completed
     GET_ERR = 2             # last get() call was not completed
+
+    ADD_TAIL_NIL = 0        # add_tail() was not called
+    ADD_TAIL_OK  = 1        # last add_tail() call completed
+    ADD_TAIL_ERR = 2        # last add_tail() call was not completed
 
     REPLACE_NIL = 0         # replace() was not called
     REPLACE_OK = 1          # last replace() call completed
@@ -139,7 +143,7 @@ REQUESTS
 ADDITIONAL REQUESTS
     is_head(self)   -> BOOL is the cursor pointing on the first LinkedList storage item?
     is_tail(self)   -> BOOL is the cursor pointing on the last LinkedLIst storage item?
-    is_value(self)  -> BOOL is the cursor is pointint on the any node?
+    is_value(self)  -> BOOL is the cursor is pointing on the any node?
 
 STATUS REQUESTS
     # Return the statuses of the corresponding commands reflecting the result of the last call of this command.
@@ -160,7 +164,7 @@ STATUS REQUESTS
 from abc import ABCMeta, abstractmethod
 
 
-class _BaseAbstractLinkedList(metaclass=ABCMeta):
+class BaseAbstractLinkedList(metaclass=ABCMeta):
 
     HEAD_NIL : int = 0
     HEAD_OK : int = 1
@@ -311,7 +315,7 @@ class _BaseAbstractLinkedList(metaclass=ABCMeta):
     @abstractmethod
     def find(self, value: object):
         """
-]        POST-CONDITION:
+         POST-CONDITION:
             - The cursor pointer has been set to the next node with the defined *value*
               relative to the node previously pointed to by the cursor.
         """
@@ -391,5 +395,10 @@ class _BaseAbstractLinkedList(metaclass=ABCMeta):
         return 0
 
 
-class AbstractLinkedList(_BaseAbstractLinkedList):
+class AbstractLinkedList(BaseAbstractLinkedList):
     ...
+
+class AbstractTwoWayList(BaseAbstractLinkedList):
+    LEFT_NIL: int = 0       # ()left was not called
+    LEFT_OK: int = 1        # last ()left call completed
+    LEFT_ERR: int = 2       # last ()left call was not completed
