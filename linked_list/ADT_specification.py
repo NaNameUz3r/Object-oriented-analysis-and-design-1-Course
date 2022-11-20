@@ -402,3 +402,14 @@ class AbstractTwoWayList(BaseAbstractLinkedList):
     LEFT_NIL: int = 0       # ()left was not called
     LEFT_OK: int = 1        # last ()left call completed
     LEFT_ERR: int = 2       # last ()left call was not completed
+
+
+    @abstractmethod
+    def left(self):
+        """
+        PRE-CONDITIONS:
+            - The LinkedList storage is not empty.
+            - There is an item on the left of the item pointed by the cursor;
+        POST-CONDITION:
+            - The cursor pointer was moved to the node on the left.
+        """
