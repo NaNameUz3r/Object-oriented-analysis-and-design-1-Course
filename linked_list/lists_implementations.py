@@ -1,4 +1,4 @@
-from linked_list_specification import BaseAbstractLinkedList
+from ADT_specification import BaseAbstractLinkedList
 
 class Node():
     def __init__(self, value):
