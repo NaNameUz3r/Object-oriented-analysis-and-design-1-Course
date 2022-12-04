@@ -4,9 +4,9 @@ implementing a queue like data types.
 
 CONSTANTS
 
-    DEQUEUE_NIL = 0              # dequeue() was not called
-    DEQUEUE_OK = 1               # last dequeue() call completed
-    DEQUEUE_ERR = 2              # last dequeue() call was not completed
+    REMOVE_FRONT_NIL = 0              # remove_front() was not called
+    REMOVE_FRONT_OK = 1               # last remove_front() call completed
+    REMOVE_FRONT_ERR = 2              # last remove_front() call was not completed
 
     GET_VALUE_NIL = 0            # get_value() was not called
     GET_VALUE_OK = 1             # last get_value() call completed successfully
@@ -24,11 +24,11 @@ CONSTRUCTOR
 
 COMMANDS
 
-    enqueue(self, item: object) — Inserts adds the _item_ in the end of the queue.
+    add_tail(self, item: object) — Inserts adds the _item_ in the end of the queue.
         POST-CONDITION:
             - The _item_ is added to the end of the queue.
 
-    dequeue(self) — Delete the "head" item from the queue.
+    remove_front(self) — Delete the "head" item from the queue.
         PRE-CONDITION:
             - The queue is not empty.
             - Item removed from head of queue.
@@ -44,6 +44,7 @@ REQUESTS
     get_first(self) — Returns the value of the first item in queue (item from head).
         PRE-CONDITION:
             - The queue is not empty.
+        POST-CONDITION:
             - The first item value has been returned.
 
 STATUS REQUESTS
@@ -58,9 +59,9 @@ from abc import ABCMeta, abstractmethod
 
 class BaseQueue(metaclass=ABCMeta):
 
-    DEQUEUE_NIL : int = 0
-    DEQUEUE_OK : int = 1
-    DEQUEUE_ERR : int = 2
+    REMOVE_FRONT_NIL : int = 0
+    REMOVE_FRONT_OK : int = 1
+    REMOVE_FRONT_ERR : int = 2
 
     GET_VALUE_NIL : int = 0
     GET_VALUE_OK : int = 1
@@ -84,14 +85,14 @@ class BaseQueue(metaclass=ABCMeta):
         # self._dequeue_status = self.DEQUEUE_NIL
 
     @abstractmethod
-    def enqueue(self, value: object):
+    def add_tail(self, value: object):
         """
         POST-CONDITION:
             - The _item_ is added to the end of the queue.
         """
 
     @abstractmethod
-    def dequeue(self):
+    def remove_front(self):
         """
         PRE-CONDITION:
             - The queue is not empty.
@@ -109,14 +110,14 @@ class BaseQueue(metaclass=ABCMeta):
         return 0
 
     @abstractmethod
-    def get_first(self):
+    def get_front(self):
         """
         PRE-CONDITION:
             - The queue is not empty.
             - The first item value has been returned.
         """
     @abstractmethod
-    def get_dequeue_status(self) -> int:
+    def get_remove_front_status(self) -> int:
         return 0
 
     @abstractmethod
