@@ -5,7 +5,7 @@ implementing a dynamic array data types.
 CONSTANTS
     GET_ITEM_NIL = 0                # __getitem__() was not called
     GET_ITEM_OK = 1                 # last __getitem__() call completed
-    GET_ITEM_ERR = 2                # __getitem__() was nod completed
+    GET_ITEM_ERR = 2                # __getitem__() was not completed
 
     INSERT_NIL = 0                 # insert() was not called
     INSERT_OK = 1                  # last insert() call completed
