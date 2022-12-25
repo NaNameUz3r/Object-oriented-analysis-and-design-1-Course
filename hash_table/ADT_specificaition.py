@@ -1,5 +1,5 @@
 """
-Specification and implementation of HashTable abstrack data type.
+Specification and implementation of HashTable abstract data type.
 CONSTANTS
     PUT_NIL             # put() was not called yet
     PUT_OK              # last put() call completed
